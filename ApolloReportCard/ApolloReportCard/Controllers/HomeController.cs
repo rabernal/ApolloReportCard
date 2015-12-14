@@ -22,7 +22,7 @@ namespace ApolloReportCard.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "This is your contact page.";
 
             return View();
         }
