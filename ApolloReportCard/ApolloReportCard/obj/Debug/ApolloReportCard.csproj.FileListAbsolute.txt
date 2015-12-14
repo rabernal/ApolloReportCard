@@ -67,3 +67,5 @@
 \\psf\Home\Desktop\GitHub\ApolloReportCard\ApolloReportCard\ApolloReportCard\obj\Debug\ApolloReportCard.csprojResolveAssemblyReference.cache
 \\psf\Home\Desktop\GitHub\ApolloReportCard\ApolloReportCard\ApolloReportCard\obj\Debug\ApolloReportCard.dll
 \\psf\Home\Desktop\GitHub\ApolloReportCard\ApolloReportCard\ApolloReportCard\obj\Debug\ApolloReportCard.pdb
+\\psf\Home\Desktop\GitHub\ApolloReportCard\ApolloReportCard\ApolloReportCard\obj\Debug\ApolloReportCard.Migrations.InitialCreate.resources
+\\psf\Home\Desktop\GitHub\ApolloReportCard\ApolloReportCard\ApolloReportCard\obj\Debug\ApolloReportCard.csproj.GenerateResource.Cache
