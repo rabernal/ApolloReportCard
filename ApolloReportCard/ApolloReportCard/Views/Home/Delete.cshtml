@@ -1,0 +1,96 @@
+﻿@model ApolloReportCard.Models.CriteriaModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CriteriaModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuarterOneGrade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuarterOneGrade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuarterOneComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuarterOneComments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuarterTwoGrade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuarterTwoGrade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuarterTwoComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuarterTwoComments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuarterThreeGrade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuarterThreeGrade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuarterThreeComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuarterThreeComments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuarterFourGrade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuarterFourGrade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuarterFourComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuarterFourComments)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
