@@ -22,6 +22,13 @@ namespace ApolloReportCard.Controllers
             return View(await db.Criteria.ToListAsync());
         }
 
+        // GET: Home/About
+        public ActionResult About()
+        {
+            
+            return View(db.Criteria.ToList());
+        }
+
         // GET: Home/Details/5
         public async Task<ActionResult> Details(int? id)
         {
