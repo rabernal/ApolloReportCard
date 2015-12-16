@@ -19,7 +19,7 @@ namespace ApolloReportCard.Controllers
         // GET: Home
         public async Task<ActionResult> Index()
         {
-            ViewData["Q1"] = "12/1/15";
+            ViewData["Q1"] = "12/2/15";
             ViewData["Q2"] = "3/1/16";
             ViewData["Q3"] = "6/1/16";
             ViewData["Q4"] = "9/1/16";
