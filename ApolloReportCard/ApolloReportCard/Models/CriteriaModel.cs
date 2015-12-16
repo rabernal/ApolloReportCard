@@ -9,6 +9,7 @@ namespace ApolloReportCard.Models
 {
     public class CriteriaModel
     {
+        
         public int Id { get; set; }
         [Display(Name = "Criteria Name")]
         public string Name { get; set; }

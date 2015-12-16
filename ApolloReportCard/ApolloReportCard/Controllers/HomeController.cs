@@ -19,6 +19,11 @@ namespace ApolloReportCard.Controllers
         // GET: Home
         public async Task<ActionResult> Index()
         {
+            ViewData["Q1"] = DateTime.Parse("12/1/15");
+            ViewData["Q2"] = DateTime.Parse("3/1/16");
+            ViewData["Q3"] = DateTime.Parse("6/1/16");
+            ViewData["Q4"] = DateTime.Parse("9/1/16");
+                        
             return View(await db.Criteria.ToListAsync());
         }
 

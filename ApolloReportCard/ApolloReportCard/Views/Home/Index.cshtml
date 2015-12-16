@@ -14,30 +14,54 @@
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
+@if (DateTime.Now > ViewData["Q1"])
+        {
         <th>
             @Html.DisplayNameFor(model => model.QuarterOneGrade)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QuarterOneComments)
-        </th>
+}
+@if (DateTime.Now > ViewData["Q2"])
+        {
         <th>
             @Html.DisplayNameFor(model => model.QuarterTwoGrade)
         </th>
+}
+@if (DateTime.Now > ViewData["Q3"])
+        {
         <th>
-            @Html.DisplayNameFor(model => model.QuarterTwoComments)
-        </th>
-        @*<th>
             @Html.DisplayNameFor(model => model.QuarterThreeGrade)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QuarterThreeComments)
-        </th>
+}
+@if (DateTime.Now > ViewData["Q4"])
+        {
         <th>
             @Html.DisplayNameFor(model => model.QuarterFourGrade)
         </th>
+}
+@if (DateTime.Now > ViewData["Q1"])
+        {
+        <th>
+            @Html.DisplayNameFor(model => model.QuarterOneComments)
+        </th>
+}
+@if (DateTime.Now > ViewData["Q2"])
+        {
+        <th>
+            @Html.DisplayNameFor(model => model.QuarterTwoComments)
+        </th>
+}
+@if (DateTime.Now > ViewData["Q3"])
+        {
+        <th>
+            @Html.DisplayNameFor(model => model.QuarterThreeComments)
+        </th>
+}
+@if (DateTime.Now > ViewData["Q4"])
+        {
         <th>
             @Html.DisplayNameFor(model => model.QuarterFourComments)
-        </th>*@
+        </th>
+}
         <th></th>
     </tr>
 
@@ -46,30 +70,54 @@
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
+        @if (DateTime.Now > ViewData["Q1"])
+        { 
         <td>
-            @Html.DisplayFor(modelItem => item.QuarterOneGrade)
+            @Html.EditorFor(modelItem => item.QuarterOneGrade)
         </td>
+        }
+        @if (DateTime.Now > ViewData["Q2"])
+        {
         <td>
-            @Html.DisplayFor(modelItem => item.QuarterOneComments)
+            @Html.EditorFor(modelItem => item.QuarterTwoGrade)
         </td>
+        }
+        @if (DateTime.Now > ViewData["Q3"])
+        {
         <td>
-            @Html.DisplayFor(modelItem => item.QuarterTwoGrade)
+            @Html.EditorFor(modelItem => item.QuarterThreeGrade)
         </td>
+        }
+        @if (DateTime.Now > ViewData["Q4"])
+        {
         <td>
-            @Html.DisplayFor(modelItem => item.QuarterTwoComments)
+            @Html.EditorFor(modelItem => item.QuarterFourGrade)
         </td>
+        }
+        @if (DateTime.Now > ViewData["Q1"])
+        {
         <td>
-            @Html.DisplayFor(modelItem => item.QuarterThreeGrade)
+            @Html.EditorFor(modelItem => item.QuarterOneComments)
         </td>
+        }
+        @if (DateTime.Now > ViewData["Q2"])
+        {
         <td>
-            @Html.DisplayFor(modelItem => item.QuarterThreeComments)
+            @Html.EditorFor(modelItem => item.QuarterTwoComments)
         </td>
+        }
+        @if (DateTime.Now > ViewData["Q3"])
+        {
         <td>
-            @Html.DisplayFor(modelItem => item.QuarterFourGrade)
+            @Html.EditorFor(modelItem => item.QuarterThreeComments)
         </td>
+        }
+        @if (DateTime.Now > ViewData["Q4"])
+        {
         <td>
-            @Html.DisplayFor(modelItem => item.QuarterFourComments)
+            @Html.EditorFor(modelItem => item.QuarterFourComments)
         </td>
+        }
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
@@ -79,3 +127,21 @@
 }
 
 </table>
+
+
+
+
+@section scripts {
+
+    <script>
+        var today = new Date($.now());
+        var q1 = new Date('2013-05-23');
+
+        if (today > q1) {
+            //alert(today.valueOf().toString());
+        }
+        $()
+
+</script>
+
+}
