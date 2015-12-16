@@ -14,49 +14,49 @@
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
-@if (DateTime.Now > DateTime.Parse(ViewData["Q1"].ToString()))
+@if (DateTime.Now > ViewData["Q1"])
         {
         <th>
             @Html.DisplayNameFor(model => model.QuarterOneGrade)
         </th>
 }
-@if (DateTime.Now > DateTime.Parse(ViewData["Q2"].ToString()))
+@if (DateTime.Now > ViewData["Q2"])
         {
         <th>
             @Html.DisplayNameFor(model => model.QuarterTwoGrade)
         </th>
 }
-@if (DateTime.Now > DateTime.Parse(ViewData["Q3"].ToString()))
+@if (DateTime.Now > ViewData["Q3"])
         {
         <th>
             @Html.DisplayNameFor(model => model.QuarterThreeGrade)
         </th>
 }
-@if (DateTime.Now > DateTime.Parse(ViewData["Q4"].ToString()))
+@if (DateTime.Now > ViewData["Q4"])
         {
         <th>
             @Html.DisplayNameFor(model => model.QuarterFourGrade)
         </th>
 }
-@if (DateTime.Now > DateTime.Parse(ViewData["Q1"].ToString()))
+@if (DateTime.Now > ViewData["Q1"])
         {
         <th>
             @Html.DisplayNameFor(model => model.QuarterOneComments)
         </th>
 }
-@if (DateTime.Now > DateTime.Parse(ViewData["Q2"].ToString()))
+@if (DateTime.Now > ViewData["Q2"])
         {
         <th>
             @Html.DisplayNameFor(model => model.QuarterTwoComments)
         </th>
 }
-@if (DateTime.Now > DateTime.Parse(ViewData["Q3"].ToString()))
+@if (DateTime.Now > ViewData["Q3"])
         {
         <th>
             @Html.DisplayNameFor(model => model.QuarterThreeComments)
         </th>
 }
-@if (DateTime.Now > DateTime.Parse(ViewData["Q4"].ToString()))
+@if (DateTime.Now > ViewData["Q4"])
         {
         <th>
             @Html.DisplayNameFor(model => model.QuarterFourComments)
@@ -70,49 +70,49 @@
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
-        @if (DateTime.Now > DateTime.Parse(ViewData["Q1"].ToString()))
+        @if (DateTime.Now > ViewData["Q1"])
         { 
         <td>
             @Html.EditorFor(modelItem => item.QuarterOneGrade)
         </td>
         }
-        @if (DateTime.Now > DateTime.Parse(ViewData["Q2"].ToString()))
+        @if (DateTime.Now > ViewData["Q2"])
         {
         <td>
             @Html.EditorFor(modelItem => item.QuarterTwoGrade)
         </td>
         }
-        @if (DateTime.Now > DateTime.Parse(ViewData["Q3"].ToString()))
+        @if (DateTime.Now > ViewData["Q3"])
         {
         <td>
             @Html.EditorFor(modelItem => item.QuarterThreeGrade)
         </td>
         }
-        @if (DateTime.Now > DateTime.Parse(ViewData["Q4"].ToString()))
+        @if (DateTime.Now > ViewData["Q4"])
         {
         <td>
             @Html.EditorFor(modelItem => item.QuarterFourGrade)
         </td>
         }
-        @if (DateTime.Now > DateTime.Parse(ViewData["Q1"].ToString()))
+        @if (DateTime.Now > ViewData["Q1"])
         {
         <td>
             @Html.EditorFor(modelItem => item.QuarterOneComments)
         </td>
         }
-        @if (DateTime.Now > DateTime.Parse(ViewData["Q2"].ToString()))
+        @if (DateTime.Now > ViewData["Q2"])
         {
         <td>
             @Html.EditorFor(modelItem => item.QuarterTwoComments)
         </td>
         }
-        @if (DateTime.Now > DateTime.Parse(ViewData["Q3"].ToString()))
+        @if (DateTime.Now > ViewData["Q3"])
         {
         <td>
             @Html.EditorFor(modelItem => item.QuarterThreeComments)
         </td>
         }
-        @if (DateTime.Now > DateTime.Parse(ViewData["Q4"].ToString()))
+        @if (DateTime.Now > ViewData["Q4"])
         {
         <td>
             @Html.EditorFor(modelItem => item.QuarterFourComments)
