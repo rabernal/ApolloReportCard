@@ -68,7 +68,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.EditorFor(modelItem => item.Name)
         </td>
         @if (DateTime.Now > DateTime.Parse(ViewData["Q1"].ToString()))
         { 
@@ -127,7 +127,7 @@
 }
 
 </table>
-
+<button id="hello_btn">click me!</button>
 
 
 
@@ -140,8 +140,19 @@
         if (today > q1) {
             //alert(today.valueOf().toString());
         }
-        $()
+        
 
+        $('#hello_btn').click(function () {
+            var $lastrow = $('body > div.container.body-content > table > tbody tr:last');
+            $($lastrow).after($lastrow.clone());
+            $('body > div.container.body-content > table > tbody tr:last > td > input').each(function () {
+                $(this).val('');
+                
+            })
+            
+        })
+
+        
 </script>
 
 }
