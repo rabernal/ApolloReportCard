@@ -9,126 +9,144 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@using (Html.BeginForm("Create", "Home"))
+{
+    @Html.AntiForgeryToken()
 <table class="table table-bordered table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
-@if (DateTime.Now > DateTime.Parse(ViewData["Q1"].ToString()))
+        @if (DateTime.Now > DateTime.Parse(ViewData["Q1"].ToString()))
         {
-        <th>
-            @Html.DisplayNameFor(model => model.QuarterOneGrade)
-        </th>
-}
-@if (DateTime.Now > DateTime.Parse(ViewData["Q2"].ToString()))
+            <th>
+                @Html.DisplayNameFor(model => model.QuarterOneGrade)
+            </th>
+        }
+        @if (DateTime.Now > DateTime.Parse(ViewData["Q2"].ToString()))
         {
-        <th>
-            @Html.DisplayNameFor(model => model.QuarterTwoGrade)
-        </th>
-}
-@if (DateTime.Now > DateTime.Parse(ViewData["Q3"].ToString()))
+            <th>
+                @Html.DisplayNameFor(model => model.QuarterTwoGrade)
+            </th>
+        }
+        @if (DateTime.Now > DateTime.Parse(ViewData["Q3"].ToString()))
         {
-        <th>
-            @Html.DisplayNameFor(model => model.QuarterThreeGrade)
-        </th>
-}
-@if (DateTime.Now > DateTime.Parse(ViewData["Q4"].ToString()))
+            <th>
+                @Html.DisplayNameFor(model => model.QuarterThreeGrade)
+            </th>
+        }
+        @if (DateTime.Now > DateTime.Parse(ViewData["Q4"].ToString()))
         {
-        <th>
-            @Html.DisplayNameFor(model => model.QuarterFourGrade)
-        </th>
-}
-@if (DateTime.Now > DateTime.Parse(ViewData["Q1"].ToString()))
+            <th>
+                @Html.DisplayNameFor(model => model.QuarterFourGrade)
+            </th>
+        }
+        @if (DateTime.Now > DateTime.Parse(ViewData["Q1"].ToString()))
         {
-        <th>
-            @Html.DisplayNameFor(model => model.QuarterOneComments)
-        </th>
-}
-@if (DateTime.Now > DateTime.Parse(ViewData["Q2"].ToString()))
+            <th>
+                @Html.DisplayNameFor(model => model.QuarterOneComments)
+            </th>
+        }
+        @if (DateTime.Now > DateTime.Parse(ViewData["Q2"].ToString()))
         {
-        <th>
-            @Html.DisplayNameFor(model => model.QuarterTwoComments)
-        </th>
-}
-@if (DateTime.Now > DateTime.Parse(ViewData["Q3"].ToString()))
+            <th>
+                @Html.DisplayNameFor(model => model.QuarterTwoComments)
+            </th>
+        }
+        @if (DateTime.Now > DateTime.Parse(ViewData["Q3"].ToString()))
         {
-        <th>
-            @Html.DisplayNameFor(model => model.QuarterThreeComments)
-        </th>
-}
-@if (DateTime.Now > DateTime.Parse(ViewData["Q4"].ToString()))
+            <th>
+                @Html.DisplayNameFor(model => model.QuarterThreeComments)
+            </th>
+        }
+        @if (DateTime.Now > DateTime.Parse(ViewData["Q4"].ToString()))
         {
-        <th>
-            @Html.DisplayNameFor(model => model.QuarterFourComments)
-        </th>
-}
+            <th>
+                @Html.DisplayNameFor(model => model.QuarterFourComments)
+            </th>
+        }
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        @if (DateTime.Now > DateTime.Parse(ViewData["Q1"].ToString()))
-        { 
-        <td>
-            @Html.EditorFor(modelItem => item.QuarterOneGrade)
-        </td>
-        }
-        @if (DateTime.Now > DateTime.Parse(ViewData["Q2"].ToString()))
-        {
-        <td>
-            @Html.EditorFor(modelItem => item.QuarterTwoGrade)
-        </td>
-        }
-        @if (DateTime.Now > DateTime.Parse(ViewData["Q3"].ToString()))
-        {
-        <td>
-            @Html.EditorFor(modelItem => item.QuarterThreeGrade)
-        </td>
-        }
-        @if (DateTime.Now > DateTime.Parse(ViewData["Q4"].ToString()))
-        {
-        <td>
-            @Html.EditorFor(modelItem => item.QuarterFourGrade)
-        </td>
-        }
-        @if (DateTime.Now > DateTime.Parse(ViewData["Q1"].ToString()))
-        {
-        <td>
-            @Html.EditorFor(modelItem => item.QuarterOneComments)
-        </td>
-        }
-        @if (DateTime.Now > DateTime.Parse(ViewData["Q2"].ToString()))
-        {
-        <td>
-            @Html.EditorFor(modelItem => item.QuarterTwoComments)
-        </td>
-        }
-        @if (DateTime.Now > DateTime.Parse(ViewData["Q3"].ToString()))
-        {
-        <td>
-            @Html.EditorFor(modelItem => item.QuarterThreeComments)
-        </td>
-        }
-        @if (DateTime.Now > DateTime.Parse(ViewData["Q4"].ToString()))
-        {
-        <td>
-            @Html.EditorFor(modelItem => item.QuarterFourComments)
-        </td>
-        }
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+
+
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            @if (DateTime.Now > DateTime.Parse(ViewData["Q1"].ToString()))
+            {
+                <td>
+                    @Html.EditorFor(modelItem => item.QuarterOneGrade)
+                </td>
+            }
+            @if (DateTime.Now > DateTime.Parse(ViewData["Q2"].ToString()))
+            {
+                <td>
+                    @Html.EditorFor(modelItem => item.QuarterTwoGrade)
+                </td>
+            }
+            @if (DateTime.Now > DateTime.Parse(ViewData["Q3"].ToString()))
+            {
+                <td>
+                    @Html.EditorFor(modelItem => item.QuarterThreeGrade)
+                </td>
+            }
+            @if (DateTime.Now > DateTime.Parse(ViewData["Q4"].ToString()))
+            {
+                <td>
+                    @Html.EditorFor(modelItem => item.QuarterFourGrade)
+                </td>
+            }
+            @if (DateTime.Now > DateTime.Parse(ViewData["Q1"].ToString()))
+            {
+                <td>
+                    @Html.EditorFor(modelItem => item.QuarterOneComments)
+                </td>
+            }
+            @if (DateTime.Now > DateTime.Parse(ViewData["Q2"].ToString()))
+            {
+                <td>
+                    @Html.EditorFor(modelItem => item.QuarterTwoComments)
+                </td>
+            }
+            @if (DateTime.Now > DateTime.Parse(ViewData["Q3"].ToString()))
+            {
+                <td>
+                    @Html.EditorFor(modelItem => item.QuarterThreeComments)
+                </td>
+            }
+            @if (DateTime.Now > DateTime.Parse(ViewData["Q4"].ToString()))
+            {
+                <td>
+                    @Html.EditorFor(modelItem => item.QuarterFourComments)
+                </td>
+            }
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+
+
+
 
 </table>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Save" class="btn btn-default" />
+        
+    </div>
+</div>
 
-
+}
 
 
 @section scripts {
@@ -142,6 +160,6 @@
         }
         $()
 
-</script>
+    </script>
 
 }
