@@ -6,14 +6,19 @@
 
 <h2>Index2</h2>
 
+
 <p>
     @Html.ActionLink("Create New", "Create")
+</p>
+<p>
+    <button id="AddRow">Add Row</button>
 </p>
 
 @using (@Html.BeginForm("Index2", "Home", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    <table>
+
+    <table id="mytable">
         <tr>
             @for (int i = 0; i < 1; i++)
             {
@@ -77,20 +82,17 @@
         {
             <tr>
                 <td>
-                    @*@Html.DisplayFor(modelItem => item.Name)*@
                     @Html.EditorFor(model => model[i].Name)
                 </td>
                 @if (DateTime.Now > DateTime.Parse(ViewData["Q1"].ToString()))
                 {
                     <td>
-                        @*@Html.EditorFor(modelItem => item.QuarterOneGrade)*@
                         @Html.EditorFor(model => model[i].QuarterOneGrade)
                     </td>
                 }
                 @if (DateTime.Now > DateTime.Parse(ViewData["Q2"].ToString()))
                 {
                     <td>
-                        @*@Html.EditorFor(modelItem => item.QuarterTwoGrade)*@
                         @Html.EditorFor(model => model[i].QuarterTwoGrade)
                     </td>
                 }
@@ -98,56 +100,48 @@
 
                 @if (DateTime.Now > DateTime.Parse(ViewData["Q3"].ToString()))
                 {
-                    <th>
-                        @*@Html.DisplayNameFor(model => model.QuarterThreeGrade)*@
+                    <td>
                         @Html.EditorFor(model => model[i].QuarterThreeGrade)
-                    </th>
+                    </td>
                 }
                 @if (DateTime.Now > DateTime.Parse(ViewData["Q4"].ToString()))
                 {
-                    <th>
-                        @*@Html.DisplayNameFor(model => model.QuarterFourGrade)*@
+                    <td>
                         @Html.EditorFor(model => model[i].QuarterFourGrade)
-                    </th>
+                    </td>
                 }
                 @if (DateTime.Now > DateTime.Parse(ViewData["Q1"].ToString()))
                 {
-                    <th>
-                        @*@Html.DisplayNameFor(model => model.QuarterOneComments)*@
+                    <td>
                         @Html.EditorFor(model => model[i].QuarterOneComments)
-                    </th>
+                    </td>
                 }
                 @if (DateTime.Now > DateTime.Parse(ViewData["Q2"].ToString()))
                 {
-                    <th>
-                        @*@Html.DisplayNameFor(model => model.QuarterTwoComments)*@
+                    <td>
                         @Html.EditorFor(model => model[i].QuarterTwoComments)
-                    </th>
+                    </td>
                 }
                 @if (DateTime.Now > DateTime.Parse(ViewData["Q3"].ToString()))
                 {
-                    <th>
-                        @*@Html.DisplayNameFor(model => model.QuarterThreeComments)*@
+                    <td>
                         @Html.EditorFor(model => model[i].QuarterThreeComments)
-                    </th>
+                    </td>
                 }
                 @if (DateTime.Now > DateTime.Parse(ViewData["Q4"].ToString()))
                 {
-                    <th>
-                        @*@Html.DisplayNameFor(model => model.QuarterFourComments)*@
+                    <td>
                         @Html.EditorFor(model => model[i].QuarterFourComments)
-                    </th>
+                    </td>
                 }
                 <td>
                     @*@Html.DisplayFor(modelItem => item.Name)*@
                     @Html.HiddenFor(model => model[i].Id)
                 </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = Model[i].Id })
+                </td>
 
-
-                @*<td> @Html.HiddenFor(model => model[i].Id)</td>
-                    <td>@Html.EditorFor(model => model[i].Name)</td>
-                    <td>@Html.EditorFor(model => model[i].QuarterOneGrade)</td>
-                    <td>@Html.EditorFor(model => model[i].QuarterOneComments)</td>*@
             </tr>
         }
     </table>
@@ -156,3 +150,25 @@
         @ViewBag.Message
     </p>
 }
+
+
+
+
+
+@section scripts {
+
+    <script>
+
+        $("#AddRow").on("click", function (e) {
+            e.preventDefault();
+            $("form").attr('action', "/Home/Create").submit();
+        });
+
+
+
+    </script>
+
+}
+
+
+

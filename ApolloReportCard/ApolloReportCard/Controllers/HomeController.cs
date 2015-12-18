@@ -16,18 +16,8 @@ namespace ApolloReportCard.Controllers
     public class HomeController : Controller
     {
         private ApolloDB db = new ApolloDB();
-        private DateTime Q1;
-        private DateTime Q2;
-        private DateTime Q3;
-        private DateTime Q4;
-        private List<DateTime> QuarterDate = new List<DateTime>();
-
         public HomeController()
         {
-            Q1 = new DateTime(2016, 01, 01);
-            Q2 = new DateTime(2016, 03, 01);
-            Q3 = new DateTime(2016, 06, 01);
-            Q4 = new DateTime(2016, 09, 01);
 
             ViewData["Q1"] = "12/2/15";
             ViewData["Q2"] = "3/1/16";
@@ -39,9 +29,8 @@ namespace ApolloReportCard.Controllers
         public async Task<ActionResult> Index()
         {
 
-
             return View(await db.Criteria.ToListAsync());
-     
+
         }
 
         public ActionResult Index2()
@@ -98,7 +87,7 @@ namespace ApolloReportCard.Controllers
         public ActionResult About()
         {
             return View();
-            
+
             //return View(db.Criteria.ToList());
         }
 
