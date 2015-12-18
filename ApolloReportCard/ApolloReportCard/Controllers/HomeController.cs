@@ -28,22 +28,19 @@ namespace ApolloReportCard.Controllers
         // GET: Home
         public async Task<ActionResult> Index()
         {
-
-            return View(await db.Criteria.ToListAsync());
+            var models = db.Criteria
+            .Where(x => x.UserId == User.Identity.Name);
+            return View(await models.ToListAsync());
 
         }
 
-        public ActionResult Index2()
+        public async Task<ActionResult> Index2()
         {
-            ViewData["Q1"] = "12/2/15";
-            ViewData["Q2"] = "3/1/16";
-            ViewData["Q3"] = "6/1/16";
-            ViewData["Q4"] = "9/1/16";
-
             //return View(await db.Criteria.ToListAsync());
-            List<CriteriaModel> model = new List<CriteriaModel>();
-            model = db.Criteria.ToList();
-            return View(model);
+            List<CriteriaModel> tempcontainer = new List<CriteriaModel>();
+            tempcontainer = await db.Criteria.ToListAsync();
+
+            return View(tempcontainer.Where(x => x.UserId == User.Identity.Name).ToList());
 
         }
         [HttpPost]
@@ -121,13 +118,19 @@ namespace ApolloReportCard.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (User.Identity.IsAuthenticated)
+                {
+                    criteriaModel.UserId = User.Identity.Name;
+                    db.Criteria.AddOrUpdate(criteriaModel);
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Index2");
+                }
                 //db.Criteria.Add(criteriaModel);
-                db.Criteria.AddOrUpdate(criteriaModel);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
 
-            return View(criteriaModel);
+            }
+            ViewBag.Message = "New data was not updated, please login.";
+            //return View(criteriaModel);
+            return RedirectToAction("Index2");
         }
 
         // GET: Home/Edit/5
