@@ -28,23 +28,23 @@ namespace ApolloReportCard.Controllers
         // GET: Home
         public async Task<ActionResult> Index()
         {
-            var models = db.Criteria
-            .Where(x => x.UserId == User.Identity.Name);
-            return View(await models.ToListAsync());
-
-        }
-
-        public async Task<ActionResult> Index2()
-        {
-            //return View(await db.Criteria.ToListAsync());
+            //var models = db.Criteria
+            //.Where(x => x.UserId == User.Identity.Name);
+            //return View(await models.ToListAsync());
             List<CriteriaModel> tempcontainer = new List<CriteriaModel>();
             tempcontainer = await db.Criteria.ToListAsync();
-
             return View(tempcontainer.Where(x => x.UserId == User.Identity.Name).ToList());
-
         }
+
+        //public async Task<ActionResult> Index2()
+        //{
+        //    List<CriteriaModel> tempcontainer = new List<CriteriaModel>();
+        //    tempcontainer = await db.Criteria.ToListAsync();
+        //    return View(tempcontainer.Where(x => x.UserId == User.Identity.Name).ToList());
+        //}
+
         [HttpPost]
-        public ActionResult Index2(List<CriteriaModel> myCriteria)
+        public ActionResult Index(List<CriteriaModel> myCriteria)
         {
             if (ModelState.IsValid)
             {
@@ -76,7 +76,44 @@ namespace ApolloReportCard.Controllers
                 ViewBag.Message = "Failed ! Please try again.";
                 return View(myCriteria);
             }// end of else
-        }// end of index2 method
+
+
+        }
+
+        //[HttpPost]
+        //public ActionResult Index2(List<CriteriaModel> myCriteria)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        using (ApolloDB dc = new ApolloDB())
+        //        {
+        //            foreach (var i in myCriteria)
+        //            {
+        //                var c = dc.Criteria.Where(a => a.Id.Equals(i.Id)).FirstOrDefault();
+        //                if (c != null)
+        //                {
+        //                    c.Name = i.Name;
+        //                    c.QuarterOneGrade = i.QuarterOneGrade;
+        //                    c.QuarterOneComments = i.QuarterOneComments;
+        //                    c.QuarterTwoGrade = i.QuarterTwoGrade;
+        //                    c.QuarterTwoComments = i.QuarterTwoComments;
+        //                    c.QuarterThreeGrade = i.QuarterThreeGrade;
+        //                    c.QuarterThreeComments = i.QuarterThreeComments;
+        //                    c.QuarterFourGrade = i.QuarterFourGrade;
+        //                    c.QuarterFourComments = i.QuarterFourComments;
+        //                }
+        //            }
+        //            dc.SaveChanges();
+        //        }
+        //        ViewBag.Message = "Successfully Updated.";
+        //        return View(myCriteria);
+        //    }// end model state if
+        //    else
+        //    {
+        //        ViewBag.Message = "Failed ! Please try again.";
+        //        return View(myCriteria);
+        //    }// end of else
+        //}// end of index2 method
 
 
 
@@ -123,14 +160,14 @@ namespace ApolloReportCard.Controllers
                     criteriaModel.UserId = User.Identity.Name;
                     db.Criteria.AddOrUpdate(criteriaModel);
                     await db.SaveChangesAsync();
-                    return RedirectToAction("Index2");
+                    return RedirectToAction("Index");
                 }
                 //db.Criteria.Add(criteriaModel);
 
             }
             ViewBag.Message = "New data was not updated, please login.";
             //return View(criteriaModel);
-            return RedirectToAction("Index2");
+            return RedirectToAction("Index");
         }
 
         // GET: Home/Edit/5

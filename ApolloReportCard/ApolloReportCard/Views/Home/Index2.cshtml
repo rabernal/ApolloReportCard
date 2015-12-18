@@ -14,10 +14,9 @@
     <button id="AddRow">Add Row</button>
 </p>
 
-@using (@Html.BeginForm("Index2", "Home", FormMethod.Post))
+@using (@Html.BeginForm("Index", "Home", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    @*@Html.HiddenFor(model => model[0].UserId == User.Identity.Name))*@
 
     <table id="mytable" class="table table-bordered table-hover">
         <tr>
