@@ -131,19 +131,19 @@
                 @if (DateTime.Now > DateTime.Parse(ViewData["Q2"].ToString()))
                 {
                     <td>
-                        @Html.EditorFor(model => model[i].QuarterTwoComments)
+                        @Html.TextAreaFor(model => model[i].QuarterTwoComments)
                     </td>
                 }
                 @if (DateTime.Now > DateTime.Parse(ViewData["Q3"].ToString()))
                 {
                     <td>
-                        @Html.EditorFor(model => model[i].QuarterThreeComments)
+                        @Html.TextAreaFor(model => model[i].QuarterThreeComments)
                     </td>
                 }
                 @if (DateTime.Now > DateTime.Parse(ViewData["Q4"].ToString()))
                 {
                     <td>
-                        @Html.EditorFor(model => model[i].QuarterFourComments)
+                        @Html.TextAreaFor(model => model[i].QuarterFourComments)
                     </td>
                 }
                 <td>
