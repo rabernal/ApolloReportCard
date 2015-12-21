@@ -15,10 +15,25 @@ namespace ApolloReportCard.Controllers
 {
     public class HomeController : Controller
     {
+        //private List<string> grades = new List<string>();
+        //private string[] grades = new string[]{ "-A", "A", "A+", "-B", "B", "B+", "-C", "C", "C+", "-D", "D", "D+", "F" };
         private ApolloDB db = new ApolloDB();
         public HomeController()
         {
 
+            List<SelectListItem> grades = new List<SelectListItem>();
+
+            grades.Add(new SelectListItem { Text = "-A", Value = "-A" });
+
+            grades.Add(new SelectListItem { Text = "A", Value = "A" });
+
+            grades.Add(new SelectListItem { Text = "A+", Value = "A+"});
+
+            ViewBag.myGrades = grades;
+
+            //grades.Add("-A", "A", "A+", "-B", "B", "B+", "-C", "C", "C+", "-D","D","D+","F");
+            //ViewBag.Name = new SelectList(context.Roles.ToList(), "Name", "Name");
+            //ViewBag.grade = new SelectList(grades.ToList(), "grades", "grades");
             ViewData["Q1"] = "12/2/15";
             ViewData["Q2"] = "3/1/16";
             ViewData["Q3"] = "6/1/16";

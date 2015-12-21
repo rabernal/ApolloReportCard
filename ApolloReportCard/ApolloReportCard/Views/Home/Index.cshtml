@@ -1,5 +1,17 @@
 ﻿@model List<ApolloReportCard.Models.CriteriaModel>
+@{ List<SelectListItem> listItems = new List<SelectListItem>();
 
+    listItems = ViewBag.myGrades;
+
+    //foreach (var skillSet in ViewBag.SkillSetList)
+    //{
+    //    listItems.Add(new SelectListItem
+    //    {
+    //        Text = skillSet.SkillName,
+    //        Value = skillSet.id.ToString()
+    //    });
+    //}
+}
 @{
     ViewBag.Title = "Index";
 }
@@ -8,8 +20,8 @@
 
 
 @*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
 <p>
     <button id="AddRow">Add Row</button>
 </p>
@@ -87,27 +99,30 @@
                 @if (DateTime.Now > DateTime.Parse(ViewData["Q1"].ToString()))
                 {
                     <td>
-                        @Html.EditorFor(model => model[i].QuarterOneGrade)
+                        @Html.DropDownListFor(model => model[i].QuarterOneGrade, new SelectList(listItems, "Value", "Text"), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model[i].QuarterOneGrade, "", new { @class = "text-danger" })
                     </td>
                 }
                 @if (DateTime.Now > DateTime.Parse(ViewData["Q2"].ToString()))
                 {
                     <td>
-                        @Html.EditorFor(model => model[i].QuarterTwoGrade)
+                        @Html.DropDownListFor(model => model[i].QuarterTwoGrade, new SelectList(listItems, "Value", "Text"), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model[i].QuarterTwoGrade, "", new { @class = "text-danger" })
                     </td>
                 }
-
 
                 @if (DateTime.Now > DateTime.Parse(ViewData["Q3"].ToString()))
                 {
                     <td>
-                        @Html.EditorFor(model => model[i].QuarterThreeGrade)
+                        @Html.DropDownListFor(model => model[i].QuarterThreeGrade, new SelectList(listItems, "Value", "Text"), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model[i].QuarterThreeGrade, "", new { @class = "text-danger" })
                     </td>
                 }
                 @if (DateTime.Now > DateTime.Parse(ViewData["Q4"].ToString()))
                 {
                     <td>
-                        @Html.EditorFor(model => model[i].QuarterFourGrade)
+                        @Html.DropDownListFor(model => model[i].QuarterFourGrade, new SelectList(listItems, "Value", "Text"), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model[i].QuarterFourGrade, "", new { @class = "text-danger" })
                     </td>
                 }
                 @if (DateTime.Now > DateTime.Parse(ViewData["Q1"].ToString()))
