@@ -20,20 +20,31 @@ namespace ApolloReportCard.Controllers
         private ApolloDB db = new ApolloDB();
         public HomeController()
         {
+            CriteriaViewList myCriteria = new CriteriaViewList();
+            ViewBag.Criteria = myCriteria.getCriteria();
 
+            List<string> grades2 = new List<string>();
+            grades2.Add("A");
+            grades2.Add("A+");
+
+            ViewBag.myGrades2 = grades2;
             List<SelectListItem> grades = new List<SelectListItem>();
 
             grades.Add(new SelectListItem { Text = "-A", Value = "-A" });
-
             grades.Add(new SelectListItem { Text = "A", Value = "A" });
-
-            grades.Add(new SelectListItem { Text = "A+", Value = "A+"});
-
+            grades.Add(new SelectListItem { Text = "A+", Value = "A" });
+            grades.Add(new SelectListItem { Text = "-B", Value = "A" });
+            grades.Add(new SelectListItem { Text = "B", Value = "A+"});
+            grades.Add(new SelectListItem { Text = "B+", Value = "A+" });
+            grades.Add(new SelectListItem { Text = "-C", Value = "A" });
+            grades.Add(new SelectListItem { Text = "C", Value = "A+" });
+            grades.Add(new SelectListItem { Text = "C+", Value = "A+" });
+            grades.Add(new SelectListItem { Text = "-D", Value = "A" });
+            grades.Add(new SelectListItem { Text = "D", Value = "A+" });
+            grades.Add(new SelectListItem { Text = "D+", Value = "A+" });
+            grades.Add(new SelectListItem { Text = "F", Value = "A+" });
             ViewBag.myGrades = grades;
 
-            //grades.Add("-A", "A", "A+", "-B", "B", "B+", "-C", "C", "C+", "-D","D","D+","F");
-            //ViewBag.Name = new SelectList(context.Roles.ToList(), "Name", "Name");
-            //ViewBag.grade = new SelectList(grades.ToList(), "grades", "grades");
             ViewData["Q1"] = "12/2/15";
             ViewData["Q2"] = "3/1/16";
             ViewData["Q3"] = "6/1/16";
