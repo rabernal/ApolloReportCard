@@ -30,19 +30,19 @@ namespace ApolloReportCard.Controllers
             ViewBag.myGrades2 = grades2;
             List<SelectListItem> grades = new List<SelectListItem>();
 
-            grades.Add(new SelectListItem { Text = "-A", Value = "-A" });
+            grades.Add(new SelectListItem { Text = "A+", Value = "A+" });
             grades.Add(new SelectListItem { Text = "A", Value = "A" });
-            grades.Add(new SelectListItem { Text = "A+", Value = "A" });
-            grades.Add(new SelectListItem { Text = "-B", Value = "A" });
-            grades.Add(new SelectListItem { Text = "B", Value = "A+"});
-            grades.Add(new SelectListItem { Text = "B+", Value = "A+" });
-            grades.Add(new SelectListItem { Text = "-C", Value = "A" });
-            grades.Add(new SelectListItem { Text = "C", Value = "A+" });
-            grades.Add(new SelectListItem { Text = "C+", Value = "A+" });
-            grades.Add(new SelectListItem { Text = "-D", Value = "A" });
-            grades.Add(new SelectListItem { Text = "D", Value = "A+" });
-            grades.Add(new SelectListItem { Text = "D+", Value = "A+" });
-            grades.Add(new SelectListItem { Text = "F", Value = "A+" });
+            grades.Add(new SelectListItem { Text = "A-", Value = "A-" });
+            grades.Add(new SelectListItem { Text = "B+", Value = "B+" });
+            grades.Add(new SelectListItem { Text = "B", Value = "B"});
+            grades.Add(new SelectListItem { Text = "B-", Value = "B-" });
+            grades.Add(new SelectListItem { Text = "C+", Value = "C+" });
+            grades.Add(new SelectListItem { Text = "C", Value = "C" });
+            grades.Add(new SelectListItem { Text = "C-", Value = "C-" });
+            grades.Add(new SelectListItem { Text = "D+", Value = "D+" });
+            grades.Add(new SelectListItem { Text = "D", Value = "D" });
+            grades.Add(new SelectListItem { Text = "D-", Value = "D-" });
+            grades.Add(new SelectListItem { Text = "F", Value = "F" });
             ViewBag.myGrades = grades;
 
             ViewData["Q1"] = "12/2/15";
@@ -188,10 +188,13 @@ namespace ApolloReportCard.Controllers
                     await db.SaveChangesAsync();
                     return RedirectToAction("Index");
                 }
-                //db.Criteria.Add(criteriaModel);
+                else
+                {
+                    return PartialView("_logInError");
+                }
 
             }
-            ViewBag.Message = "New data was not updated, please login.";
+           
             //return View(criteriaModel);
             return RedirectToAction("Index");
         }
