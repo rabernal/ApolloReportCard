@@ -1,7 +1,7 @@
 ﻿@model List<ApolloReportCard.Models.CriteriaModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Apollo Report Card";
 }
 @{ List<SelectListItem> listItems = new List<SelectListItem>();
     List<string> criteriaList = new List<string>();
@@ -146,7 +146,7 @@
                         @Html.TextAreaFor(model => model[i].QuarterFourComments)
                     </td>
                 }
-                <td>
+                <td style="display:none;">
                     @*@Html.DisplayFor(modelItem => item.Name)*@
                     @Html.HiddenFor(model => model[i].Id)
                 </td>
