@@ -26,6 +26,7 @@ namespace ApolloReportCard
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/myStyle.css",
                       "~/Content/site.css"));
         }
     }
